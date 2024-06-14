@@ -35,3 +35,21 @@ public class NotificationService
         _emailService.SendEmail(email);
     }
 }
+
+public class SmsService : IMessageService
+{
+    public void SendMessage(string message)
+    {
+        Console.WriteLine($"Sending SMS: {message}");
+    }
+}
+
+public class EmailService : IEmailService
+{
+    public void SendEmail(string email)
+    {
+        Console.WriteLine($"Sending Email: {email}");
+    }
+}
+
+
