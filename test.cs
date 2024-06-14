@@ -17,3 +17,21 @@ class Program
         notificationService.Notify("Hello, this is a test message!", "test@example.com");
     }
 }
+
+public class NotificationService
+{
+    private readonly IMessageService _messageService;
+    private readonly IEmailService _emailService;
+
+    public NotificationService(IMessageService messageService, IEmailService emailService)
+    {
+        _messageService = messageService;
+        _emailService = emailService;
+    }
+
+    public void Notify(string message, string email)
+    {
+        _messageService.SendMessage(message);
+        _emailService.SendEmail(email);
+    }
+}
